@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  div(id='overlay')
+    img(src='/images/loading.gif',class='loading')
+  section(class='holder')
+    section(class='header')
+      button(class='open_event hidden') + Event
+      button(class='options',onclick="ui_functions.modal_box.open('small',this)",data='{"action":"options","data":{}}') Options	  
+      button(class='reload')
+      span UnifiedTastes
+    section(class='add_section')
+      div(class='content')
+        form(class='right_map')
+          div(class='form_group')
+            input(id='advanced-placepicker',class='form-control',data-map-container-id='collapseTwo')
+            div(id='right_map') Map
+        form(class='add_event')
+          input(type='text', placeholder='Title', name='title')
+          input(type='text', placeholder='Tags [tag1, tag2, tag3 ... ]', name='tags')
+          input(type='number', id='time_end',name='duration', placeholder='Duration [minutes]', max='120', min='1' style='width:49%;box-sizing:border-box;float:right;')
+          input(type='text', id='time_start',name='start', placeholder='Start Time', style='width:100%;box-sizing:border-box;')
+          textarea(placeholder='Small description [max 100]', maxlenght='100', name='description', class='event')
+          button(class='add_event') Add Event
+    section(class='content')
+      article(class='post start',data='2', style='display:none')
+        img(src='/images/user.png',class='user') 
+        div(class='right_article')
+          h1 Title
+            span(class='date') 5:30 PM
+          p my text goes here
+        div(class='going')		
+        button(class='join', data-id='2' onclick="ui_functions.modal_box.open('big',this)", data='{"action":"joined","data":{}}') Join
+        div(class='tags')
+          <span class='comment' onclick="ui_functions.modal_box.open('big',this)", data='{"action":"comment","data":{}}'  style='margin-right:5px'>Comments</span><span class='location' style='margin-right:15px' onclick="ui_functions.modal_box.open('big',this)", data='{"action":"location","data":{}}'>Location </span> <span>#tag1</span> <span>#tag2</span> <span>#tag3</span>

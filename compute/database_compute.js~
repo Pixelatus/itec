@@ -1,0 +1,21 @@
+var path = require('path');
+
+var appDir = path.dirname(require.main.filename);
+
+var connection = require(appDir+'/compute/mysql.js');
+
+
+var module_to_exp = {
+
+   //============= GET actions
+   get_profile : function(database_id,callback){
+
+		
+		 return callback({});
+
+	 
+	 }
+   
+}
+
+module.exports = module_to_exp;
